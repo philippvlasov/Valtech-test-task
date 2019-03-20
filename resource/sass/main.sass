@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Antic')
+
+//Layout
+body
+  font-family: 'Abel', sans-serif
+  font-size: 16px
+  padding-top: 103px
+
+
+@mixin contactButton ($color)
+  font-size: 28px
+  background-color: $color
+  color: white
+  border-radius: 10px
+  padding: 13px 57px
+  transition: background-color .2s linear
+  box-shadow: 0 2px 6px #555
+  &:hover
+    color: white
+    text-decoration: none
+    background-color: darken($color, 20%)
+    @media screen and (max-width: 991px)
+      background-color: $color
+
+.contactButton
+  @include contactButton (#00C8FF)
+.contactButtonSmall
+  @include contactButton (#00C8FF)
+  font-size: 16px
+  padding: 0 15px
+  border-radius: 5px
+  box-shadow: none
+  @media screen and (max-width: 991px)
+    font-size: 24px
+
+section
+  padding: 202px 0
+  overflow: hidden
+  .container
+    position: relative
+    .sectionName
+      position: absolute
+      top: -100px
+      left: 9px
+      font-size: 20px
+      color: #C2C2C2
+      &:before
+        content: ''
+        position: absolute
+        top: 48%
+        left: -10020px
+        width: 9999px
+        height: 1px
+        background-color: #C2C2C2
+      &:after
+        content: ''
+        position: absolute
+        top: 48%
+        right: -10020px
+        width: 9999px
+        height: 1px
+        background-color: #C2C2C2
+
+//Header
+header
+  .navbar
+    padding-top: 55px
+    padding-right: 30px
+    max-width: 1181px
+    margin: auto
+    background-color: rgba(255, 255, 255, 0.9)
+    @media screen and (max-width: 575px)
+      padding-top: 5px
+    .nav-item
+      margin-right: 31px
+      a
+        color: #202020
+        position: relative
+        padding: 0
+        &:hover
+          &:after
+            opacity: 1
+        &:after
+          opacity: 0
+          content: ''
+          position: absolute
+          bottom: 2px
+          left: .5rem
+          width: calc(100% - 1rem)
+          height: 1px
+          background-color: #202020
+          transition: opacity .2s linear
+    .navbar-collapse
+      padding-top: 11px
+      @media screen and (max-width: 991px)
+        background-color: rgba(255, 255, 255, 0.9)
+        text-align: center
+        padding-bottom: 15px
+        .nav-item
+          font-size: 24px
+          margin: 10px 0
+          a
+            &:after
+              opacity: 0
+    .navbar-toggler
+      outline: none
+    .contactButtonSmall
+      margin-right: -62px
+      @media screen and (max-width: 1600px)
+        margin-right: 0
+      @media screen and (max-width: 767px)
+        display: none
+
+//Content
+.content
+  padding-top: 132px
+  @media screen and (max-width: 575px)
+    padding-top: 0
+  h2
+    font-size: 58px
+    color: #202020
+    text-align: center
+    margin-bottom: 69px
+    @media screen and (max-width: 575px)
+      font-size: 48px
+      line-height: 50px
+      margin-bottom: 45px
+  .underTitle
+    font-size: 32px
+    line-height: 53px
+    margin-bottom: 127px
+    @media screen and (max-width: 575px)
+      font-size: 25px
+      line-height: 31px
+      margin-bottom: 80px
+      text-align: center
+  .buttonWrapper
+    text-align: left
+    @media screen and (max-width: 1199px)
+      text-align: center
+
+//Services
+.services
+  padding-bottom: 0
+  @media screen and (max-width: 575px)
+    padding-top: 80px
+    .container
+      .sectionName
+        top: -35px
+  .item
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 21px
+    margin-bottom: 25px
+    @media screen and (max-width: 575px)
+      flex-wrap: wrap
+    &:hover
+      text-decoration: none
+      .textWrapper
+        .description
+          @media screen and (min-width: 992px)
+            color: #020202
+    .iconWrapper
+      width: 22%
+      display: flex
+      justify-content: center
+      align-items: center
+      @media screen and (max-width: 575px)
+        width: 100%
+        margin-bottom: 15px
+    .textWrapper
+      width: 70%
+      @media screen and (max-width: 575px)
+        width: 100%
+        text-align: center
+      .itemTitle
+        font-size: 28px
+        color: #000
+        margin-bottom: 10px
+      .description
+        transition: color .2s linear
+        color: #B2B2B2
+
+//Clients
+.clients
+  padding-top: 131px
+  padding-bottom: 0
+  @media screen and (max-width: 575px)
+    padding-top: 100px
+  .container
+    .sectionName
+      font-family: 'Antic', sans-serif
+      top: -78px
+  .item
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-top: 0
+    padding-bottom: 54px
+    @media screen and (max-width: 1199px)
+      padding-bottom: 70px
+    @media screen and (max-width: 767px)
+      padding-bottom: 35px
+    &:nth-child(1), &:nth-child(5), &:nth-child(9)
+      a
+        margin-right: -25px
+        @media screen and (max-width: 1199px)
+          margin-right: 0
+    &:nth-child(2), &:nth-child(6), &:nth-child(10)
+      a
+        margin-right: -50px
+        @media screen and (max-width: 1199px)
+          margin-right: 0
+    &:nth-child(3), &:nth-child(7), &:nth-child(11)
+      a
+        margin-right: -80px
+        @media screen and (max-width: 1199px)
+          margin-right: 0
+    &:nth-child(4), &:nth-child(8), &:nth-child(12)
+      a
+        margin-right: -114px
+        @media screen and (max-width: 1199px)
+          margin-right: 0
+    a
+      path
+        transition: fill .2s linear
+      &:hover
+        path
+          @media screen and (min-width: 992px)
+            fill: #000
+
+//Team
+.team
+  padding-top: 143px
+  padding-bottom: 70px
+  @media screen and (max-width: 575px)
+    padding-top: 85px
+    .container
+      .sectionName
+        top: -50px
+  .item
+    display: flex
+    align-items: center
+    padding-top: 24px
+    padding-bottom: 34px
+    @media screen and (max-width: 767px)
+      justify-content: center
+      padding-top: 10px
+      padding-bottom: 15px
+    &:nth-child(2), &:nth-child(5), &:nth-child(8)
+      padding-left: 39px
+      @media screen and (max-width: 1199px)
+        padding-left: 15px
+    &:nth-child(3), &:nth-child(6), &:nth-child(9)
+      padding-left: 65px
+      @media screen and (max-width: 1199px)
+        padding-left: 15px
+    svg
+      margin-left: 0
+      @media screen and (max-width: 575px)
+        margin-left: auto
+    .textWrapper
+      padding-left: 33px
+      width: calc(100% - 133px)
+      @media screen and (max-width: 1199px)
+        padding-left: 15px
+      @media screen and (max-width: 767px)
+        width: calc(50% - 100px)
+      @media screen and (max-width: 575px)
+        width: 50%
+      .name
+        font-size: 28px
+        line-height: 28px
+        color: #202020
+        margin-top: 10px
+        margin-bottom: 5px
+      .profession
+        font-size: 14px
+        line-height: 14px
+        color: #B2B2B2
+
+//Footer
+footer
+  padding: 26px 0
+  background-color: #F7F7F7
+  .footerWrapper
+    max-width: 1181px
+    margin: auto
+  .logo
+    margin-left: 24px
+  .footerWrapper
+    display: flex
+    justify-content: space-between
+    @media screen and (max-width: 575px)
+      flex-wrap: wrap
+      justify-content: center
+    .socialIcons
+      margin-right: -31px
+      padding-top: 9px
+      @media screen and (max-width: 1600px)
+        margin-right: 0
+        padding-right: 30px
+      @media screen and (max-width: 575px)
+        padding-right: 0
+        margin-top: 25px
+        display: flex
+        justify-content: space-around
+        width: 70%
+      a
+        margin-right: 36px
+        @media screen and (max-width: 575px)
+          margin: 0
+        &:last-child
+          margin-right: 0
+        path
+          transition: fill .2s linear
+        &:hover
+          path
+            @media screen and (min-width: 992px)
+              fill: #000
