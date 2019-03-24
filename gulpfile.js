@@ -15,7 +15,7 @@ gulp.task('sass', function () {
        .pipe(sass())
        .pipe(prefixer('last 2 versions'))
        .pipe(gulp.dest('resource/css'))
-       .pipe(browserSync.reload({stream: true}))
+       // .pipe(browserSync.reload({stream: true}))
 });
 
 gulp.task('scripts', function () {
@@ -31,14 +31,18 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('css', function () {
-   return gulp.src('resource/css/*.css')
+gulp.task('css', ['sass'], function () {
+   return gulp.src([
+       'resource/css/bootstrap.css',
+       'resource/css/main.css'
+   ])
        .pipe(concat('styles.css'))
        .pipe(gulp.dest('resource/css'))
        .pipe(cssnano())
        .pipe(rename('styles.min.css'))
        .pipe(cleanCSS({compatibility: 'ie8'}))
-       .pipe(gulp.dest('public/css'));
+       .pipe(gulp.dest('public/css'))
+       .pipe(browserSync.reload({stream: true}))
 });
 
 gulp.task('browser-sync', function () {
@@ -50,8 +54,8 @@ gulp.task('browser-sync', function () {
     });
 });
 
-gulp.task('watch', ['browser-sync', 'sass', 'css', 'scripts'], function () {
-    gulp.watch('resource/sass/**/*.sass', ['sass']);
+gulp.task('watch', ['browser-sync', 'css', 'scripts'], function () {
+    gulp.watch('resource/sass/**/*.sass', ['css']);
     gulp.watch('resource/js/myApp.js', ['scripts']);
     gulp.watch('public/*.html', browserSync.reload);
 });
