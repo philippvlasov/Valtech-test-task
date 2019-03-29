@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Abel|Antic");
-body {
+body, html {
   font-family: 'Abel', sans-serif;
   font-size: 16px;
   padding-top: 103px; }
@@ -117,7 +116,8 @@ header .navbar {
           header .navbar .navbar-collapse .nav-item a:after {
             opacity: 0; } }
   header .navbar .navbar-toggler {
-    outline: none; }
+    outline: none;
+    padding: 0; }
   header .navbar .contactButtonSmall {
     margin-right: -62px; }
     @media screen and (max-width: 1600px) {
